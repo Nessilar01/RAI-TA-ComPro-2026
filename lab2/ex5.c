@@ -17,14 +17,14 @@
 
 int main()
 {
-    char  fullName[50];     /* e.g. "Poom Konghuyrob" (contains a space) */
-    char  firstName[50];    /* e.g. "Poom" (extracted from fullName)     */
+    char  lastname[50];     
+    char  firstName[50];    
     int   age;
     float height;
     char  university[50];
 
     printf("Enter your full name: ");
-    scanf("%[^\n]", fullName);   /* read whole line, spaces included */
+    scanf("%s %s", firstName,lastname);   /* read whole line, spaces included */
 
     printf("Enter your age: ");
     scanf("%d", &age);           /* %d auto-skips the leftover newline */
@@ -35,17 +35,9 @@ int main()
     printf("Enter you University name: ");
     scanf("%s", university);     /* single word, %s already skips whitespace */
 
-    /* --- Pull just the first name out of fullName ---
-     * sscanf reads FROM the string fullName as if it were keyboard
-     * input. "%s" reading stops at the first space it finds, so
-     * firstName ends up holding just "Poom".
-     */
-    sscanf(fullName, "%s", firstName);
-
     /* --- Print the formatted greeting --- */
     printf("\n");
-    printf("Hi! Everyone. This is K.%s from %s. I am %d years old\n",
-           firstName, university, age);
+    printf("Hi! Everyone. This is %c.%s from %s. I am %d years old\n",lastname[0],firstName, university, age);
     printf("and my height is \n%.1f cm tall.\n", height);
 
     return 0;
